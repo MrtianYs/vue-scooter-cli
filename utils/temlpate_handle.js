@@ -1,3 +1,4 @@
+const path = require('path')
 const fs = require('fs-extra')
 const toast = require('./toast')
 const template = require('art-template')
@@ -6,6 +7,8 @@ let projectPath = ''
 const library = {
   Vuex() {
     try {
+      const copyPath = path.join(__dirname, '../node_modules/vue-scooter-template')
+      fs.copySync(copyPath, `${projectPath}`)
       fs.copySync(`${projectPath}/library/Vuex`, `${projectPath}`)
     } catch(e) {
       toast.error(`Files copy error: ${e}`)

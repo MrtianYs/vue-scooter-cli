@@ -1,9 +1,10 @@
 module.exports = [
   {
-    type: "checkbox",
-    message: "Select the development library you need",
-    name: "library",
-    choices: [
+    type: "multiple",
+    query: "Select the development library you need",
+    handle: "library",
+    symbol: '>',
+    menu: [
       'Vuex'
     ],
   }
