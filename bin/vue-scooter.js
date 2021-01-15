@@ -3,7 +3,6 @@
 const { Command } = require('commander')
 const pkg = require('../package.json')
 const program = new Command()
-const create = require('../cmd/create')
 
 program
   .name('vue-scooter')
@@ -16,23 +15,22 @@ program
 program
   .command('create <app-name>')
   .description('create a new project, <app-name> is required')
-  .option('--vuex', 'add vuex library')
   .action((source, destination) => {
-    create(source, destination)
+    require('../cmd/create')(source, destination)
   })
 
 program
   .command('dev')
   .description('run a local server for project development')
   .action((source, destination) => {
-
+    require('../cmd/dev')(source, destination)
   })
 
 program
   .command('build')
   .description('build project')
   .action((source, destination) => {
-    
+    require('../cmd/build')(source, destination)
   })
 
 

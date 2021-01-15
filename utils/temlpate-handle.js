@@ -9,7 +9,7 @@ const library = {
     try {
       const copyPath = path.join(__dirname, '../node_modules/vue-scooter-template')
       fs.copySync(copyPath, `${projectPath}`)
-      fs.copySync(`${projectPath}/library/Vuex`, `${projectPath}`)
+      fs.copySync(`${projectPath}/library/Vuex`, `${projectPath}/src`)
     } catch(e) {
       toast.error(`Files copy error: ${e}`)
     }
@@ -29,7 +29,7 @@ module.exports = function (answer, source) {
   let templateStr = template(`${projectPath}/library/index.art`, { Vuex: answer.library.indexOf('Vuex') > -1 })
   templateStr = removeBlankLines(templateStr)
   
-  fs.outputFileSync(`${projectPath}/index.js`, templateStr)
+  fs.outputFileSync(`${projectPath}/src/index.js`, templateStr)
   fs.remove(projectPath + '/library')
   toast.success(`the ${source} is created`)
 }

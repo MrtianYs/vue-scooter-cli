@@ -9,5 +9,10 @@ module.exports = {
     console.log('')
     console.log(chalk.green(`✔ ${msg}`))
     console.log('')
+  },
+  info(msg) {
+    console.log('')
+    console.log(chalk.blue(msg))
+    console.log('')
   }
 }

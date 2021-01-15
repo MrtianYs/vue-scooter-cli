@@ -1,15 +1,15 @@
 const fs = require('fs-extra')
 const toast = require('../utils/toast')
-const QoaPlus = require('qoa-plus')
+const QoaExtra = require('qoa-extra')
 const options = require('../utils/options')
-const templateHandle = require('../utils/temlpate_handle')
+const templateHandle = require('../utils/temlpate-handle')
 
 module.exports = async (source, cmd) => {
   const path = `${process.cwd()}/${source}`
   if(fs.existsSync(path)) {
     toast.error('The current directory already exists in the folder')
   } else {
-    QoaPlus.prompt(options).then(res => {
+    QoaExtra.prompt(options).then(res => {
       templateHandle(res, source)
     })
   }
